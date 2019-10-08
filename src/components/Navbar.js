@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import Pineapple from "../2093297.png";
 
 // MUI stuff
 import AppBar from "@material-ui/core/AppBar";
@@ -10,12 +11,12 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/styles";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+
 
 const styles = {
   cartPic: {
-    margin: "5px"
+    marginLeft: "5px",
+    marginRight: "5px"
   },
 
   root: {
@@ -35,17 +36,7 @@ class Navbar extends Component {
       <AppBar>
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
-            <img
-              src="../pineapple-pi-128.png"
-              alt="logo"
-              width="24px"
-              height="24px"
-            />
-            <img
-              src="../2.png"
-              alt="logo"
-              
-            />
+            <img src={Pineapple} alt="logo" width="24px" height="24px" className={classes.cartPic}/>
             Pineapple Pi
           </Typography>
           <Button color="inherit" component={Link} to="/">
