@@ -7,12 +7,23 @@ import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/styles";
+import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const styles = {
-  textnotr: {
-    textTransform: "none"
+  cartPic: {
+    margin: "5px"
+  },
+
+  root: {
+    flexGrow: 1
+  },
+
+  title: {
+    flexGrow: 1
   }
 };
 
@@ -23,26 +34,22 @@ class Navbar extends Component {
     return (
       <AppBar>
         <Toolbar>
-          <Fragment>
-            <Button
-              color="inherit"
-              className={classes.textnotr}
-              component={Link}
-              to="/"
-            >
-              Shop
-            </Button>
-            <Button
-              color="inherit"
-              className={classes.textnotr}
-              component={Link}
-              to="/cart"
-            >
-              
-              Cart
-              <AddShoppingCartIcon />
-            </Button>
-          </Fragment>
+          <Typography variant="h5" className={classes.title}>
+            <img
+              src="../pineapple-pi-128.png"
+              alt="logo"
+              width="24px"
+              height="24px"
+            />
+            Pineapple Pi
+          </Typography>
+          <Button color="inherit" component={Link} to="/">
+            Shop
+          </Button>
+          <Button color="inherit" component={Link} to="/cart">
+            Cart
+            <ShoppingCart className={classes.cartPic} />
+          </Button>
         </Toolbar>
       </AppBar>
     );
