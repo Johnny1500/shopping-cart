@@ -41,6 +41,11 @@ class Navbar extends Component {
               width="24px"
               height="24px"
             />
+            <img
+              src="../2.png"
+              alt="logo"
+              
+            />
             Pineapple Pi
           </Typography>
           <Button color="inherit" component={Link} to="/">
