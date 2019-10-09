@@ -12,11 +12,10 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/styles";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 
-
-const styles = {
+const styles = theme => ({
+  ...theme.spreadThis,
   cartPic: {
-    marginLeft: "5px",
-    marginRight: "5px"
+    margin: "0 5px 0 5px"
   },
 
   root: {
@@ -26,7 +25,7 @@ const styles = {
   title: {
     flexGrow: 1
   }
-};
+});
 
 class Navbar extends Component {
   render() {
@@ -36,7 +35,13 @@ class Navbar extends Component {
       <AppBar>
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
-            <img src={Pineapple} alt="logo" width="24px" height="24px" className={classes.cartPic}/>
+            <img
+              src={Pineapple}
+              alt="logo"
+              width="24px"
+              height="24px"
+              className={classes.cartPic}
+            />
             Pineapple Pi
           </Typography>
           <Button color="inherit" component={Link} to="/">
@@ -47,6 +52,7 @@ class Navbar extends Component {
             <ShoppingCart className={classes.cartPic} />
           </Button>
         </Toolbar>
+        <div className=""></div>
       </AppBar>
     );
   }

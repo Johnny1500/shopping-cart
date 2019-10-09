@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import themeObject from "./theme";
+
+// Components
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Cart from "./components/Cart";
 
-class App extends Component {
-  render() {
-    return (
+// MUI Stuff
+import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+
+const theme = createMuiTheme(themeObject);
+
+function App() {
+  return (
+    <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <div>
           <Navbar />
@@ -16,8 +25,8 @@ class App extends Component {
           </Switch>
         </div>
       </BrowserRouter>
-    );
-  }
+    </MuiThemeProvider>
+  );
 }
 
 export default App;
