@@ -3,7 +3,10 @@ import thunk from "redux-thunk";
 
 import cartReducer from "./reducers/cartReducer";
 
-const initialState = {};
+const initialState = {
+  products: [],
+  loading: false
+};
 
 const middleware = [thunk];
 

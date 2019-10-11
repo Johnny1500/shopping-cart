@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import Product from "./Product";
 
@@ -16,12 +16,13 @@ class Home extends Component {
 
   render() {
     const { loading, products } = this.props;
+    console.log(loading, products);
 
     let productsMarkup = !loading ? (
       products.map(product => <Product key={product.id} product={product} />)
     ) : (
       <div>
-        <p>Loading...</p>
+        <p style={{ marginTop: "100px" }}>Loading...</p>
       </div>
     );
 

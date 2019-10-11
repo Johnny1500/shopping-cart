@@ -30,7 +30,7 @@ class Navbar extends Component {
     const { classes } = this.props;
 
     return (
-      <AppBar>
+      <AppBar style={{ position: "relative" }}>
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
             <img
@@ -42,6 +42,7 @@ class Navbar extends Component {
             />
             Pineapple Pi
           </Typography>
+          <Fragment>
           <Button color="inherit" component={Link} to="/">
             Shop
           </Button>
@@ -49,8 +50,8 @@ class Navbar extends Component {
             Cart
             <ShoppingCart className={classes.cartPic} />
           </Button>
+          </Fragment>
         </Toolbar>
-        <div className=""></div>
       </AppBar>
     );
   }

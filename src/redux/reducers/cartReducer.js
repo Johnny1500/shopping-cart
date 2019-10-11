@@ -1,11 +1,6 @@
 import { LOADING_DATA, SET_PRODUCTS } from "../types";
 
-const initialState = {
-  products: [],
-  loading: false
-};
-
-const cartReducer = function(state = initialState, action) {
+export default function(state, action) {
   switch (action.type) {
     case LOADING_DATA:
       return {
@@ -23,4 +18,4 @@ const cartReducer = function(state = initialState, action) {
   }
 };
 
-export default cartReducer;
+
