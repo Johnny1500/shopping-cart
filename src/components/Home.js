@@ -22,12 +22,12 @@ class Home extends Component {
       products.map(product => <Product key={product.id} product={product} />)
     ) : (
       <div>
-        <p style={{ marginTop: "100px" }}>Loading...</p>
+        <p>Loading...</p>
       </div>
     );
 
     return (
-      <Grid container spacing={2}>
+      <Grid style={{ marginTop: "5px" }} container spacing={2}>
         <Grid item sm={8} xs={12}>
           {productsMarkup}
         </Grid>

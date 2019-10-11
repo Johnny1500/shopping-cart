@@ -40,7 +40,7 @@ class Navbar extends Component {
               height="24px"
               className={classes.cartPic}
             />
-            Pineapple Pi
+            Pineapple Pi single-board computers
           </Typography>
           <Fragment>
           <Button color="inherit" component={Link} to="/">

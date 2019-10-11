@@ -9,20 +9,25 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const styles = theme => ({
   ...theme.spreadThis,
   card: {
     position: "relative",
     display: "flex",
-    marginBottom: 20
+    marginBottom: 20,
+    maxWidth: 1000
   },
   image: {
-    minWidth: 200
+    minWidth: 200,
+    minHeight: 120
   },
   content: {
     padding: 25,
-    objectFit: "cover"
+    objectFit: "cover",
+    maxWidth: 700,
+    flexGrow: 1
   },
   fab: {
     margin: theme.spacing(1)
@@ -43,12 +48,12 @@ class Product extends Component {
           title="Product image"
           className={classes.image}
         />
-        <CardContent>
-          <Typography variant="h3">{name}</Typography>
+        <CardContent className={classes.content}>
+          <Typography variant="h5">{name}</Typography>
           <Typography variant="body1">{description}</Typography>
         </CardContent>
-        <Fab color="primary" aria-label="add" className={classes.fab}>
-          <AddIcon />
+        <Fab size="small" color="primary" aria-label="add" className={classes.fab}>
+          <AddShoppingCartIcon />
         </Fab>
       </Card>
     );
