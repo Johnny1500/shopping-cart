@@ -6,10 +6,11 @@ import PropTypes from "prop-types";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
+import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const styles = theme => ({
   ...theme.spreadThis,
@@ -17,11 +18,13 @@ const styles = theme => ({
     position: "relative",
     display: "flex",
     marginBottom: 20,
-    maxWidth: 1000
+    maxWidth: 500,
+    minHeight: 550,
+    flexDirection: "column"
   },
   image: {
     minWidth: 200,
-    minHeight: 120
+    minHeight: 200
   },
   content: {
     padding: 25,
@@ -30,7 +33,13 @@ const styles = theme => ({
     flexGrow: 1
   },
   fab: {
-    margin: theme.spacing(1)
+    // margin: theme.spacing(1),
+    margin: "10px",
+    // float: "right"
+  },
+  price: {
+    margin: "0 10 0 10",
+    // float: "right"
   }
 });
 
@@ -38,21 +47,28 @@ class Product extends Component {
   render() {
     const {
       classes,
-      product: { name, description, imageUrl }
+      product: { name, description, imageUrl, price }
     } = this.props;
 
     return (
       <Card className={classes.card}>
+        <CardHeader title={name} titleTypographyProps={{ variant: "h6" }} />
         <CardMedia
           image={imageUrl}
           title="Product image"
           className={classes.image}
         />
         <CardContent className={classes.content}>
-          <Typography variant="h5">{name}</Typography>
+          {/* <Typography variant="h5">{name}</Typography> */}
           <Typography variant="body1">{description}</Typography>
+          <Typography variant="h5" className={classes.price}>{price}</Typography>
         </CardContent>
-        <Fab size="small" color="primary" aria-label="add" className={classes.fab}>
+        <Fab
+          size="small"
+          color="secondary"
+          aria-label="add"
+          className={classes.fab}
+        >
           <AddShoppingCartIcon />
         </Fab>
       </Card>

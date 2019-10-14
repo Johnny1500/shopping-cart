@@ -19,7 +19,11 @@ class Home extends Component {
     console.log(loading, products);
 
     let productsMarkup = !loading ? (
-      products.map(product => <Product key={product.id} product={product} />)
+      products.map(product => (
+        <Grid item sm={2} xs={6}>
+          <Product key={product.id} product={product} />
+        </Grid>
+      ))
     ) : (
       <div>
         <p>Loading...</p>
@@ -27,10 +31,14 @@ class Home extends Component {
     );
 
     return (
-      <Grid style={{ marginTop: "5px" }} container spacing={2}>
-        <Grid item sm={8} xs={12}>
-          {productsMarkup}
-        </Grid>
+      <Grid
+        style={{ marginTop: "5px" }}
+        container
+        spacing={2}
+        direction="row"
+        justify="center"
+      >
+        {productsMarkup}
       </Grid>
     );
   }
