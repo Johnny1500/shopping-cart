@@ -21,7 +21,8 @@ const styles = theme => ({
   },
 
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    variant:"h3"
   }
 });
 

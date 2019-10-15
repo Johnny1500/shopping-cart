@@ -9,7 +9,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
 import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const styles = theme => ({
@@ -19,6 +18,7 @@ const styles = theme => ({
     display: "flex",
     marginBottom: 20,
     maxWidth: 500,
+    minWidth: 150,
     minHeight: 550,
     flexDirection: "column"
   },
@@ -33,13 +33,10 @@ const styles = theme => ({
     flexGrow: 1
   },
   fab: {
-    // margin: theme.spacing(1),
-    margin: "10px",
-    // float: "right"
+    margin: theme.spacing(1)
   },
   price: {
-    margin: "0 10 0 10",
-    // float: "right"
+    margin: "15 10 0 10"
   }
 });
 
@@ -61,7 +58,9 @@ class Product extends Component {
         <CardContent className={classes.content}>
           {/* <Typography variant="h5">{name}</Typography> */}
           <Typography variant="body1">{description}</Typography>
-          <Typography variant="h5" className={classes.price}>{price}</Typography>
+          <Typography variant="h5" className={classes.price}>
+            {price}
+          </Typography>
         </CardContent>
         <Fab
           size="small"

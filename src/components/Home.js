@@ -20,7 +20,7 @@ class Home extends Component {
 
     let productsMarkup = !loading ? (
       products.map(product => (
-        <Grid item sm={2} xs={6}>
+        <Grid item sm={2} xs={6} style={{ minWidth: 300 }}>
           <Product key={product.id} product={product} />
         </Grid>
       ))

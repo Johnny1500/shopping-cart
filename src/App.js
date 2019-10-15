@@ -6,6 +6,7 @@ import themeObject from "./theme";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Cart from "./components/Cart";
+import ErrorPage from "./components/ErrorPage";
 
 // MUI Stuff
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
@@ -27,6 +28,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/cart" component={Cart} />
+              <Route component={ErrorPage} />
             </Switch>
           </div>
         </BrowserRouter>
