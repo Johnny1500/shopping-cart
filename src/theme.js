@@ -1,4 +1,7 @@
+import circuitImage from "./132.jpg";
+
 export default {
+  
   palette: {
     primary: {
       light: "#9b9245",
@@ -13,9 +16,20 @@ export default {
       contrastText: "#fff"
     }
   },
+  overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        body: {
+          backgroundImage:
+            "url("+ circuitImage +")"
+        }
+      }
+    }
+  },
   spreadThis: {
     typography: {
       useNextVariants: true
-    }
+    },
+    
   }
 };

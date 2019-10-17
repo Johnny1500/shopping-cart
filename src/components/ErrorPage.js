@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 // MUI stuff
@@ -13,16 +13,13 @@ const styles = theme => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 100,
-    maxHeight: 500,
-    maxWidth: 500,
-    flexDirection: "column",
-    top: "50%",
-    left: "30%"
+    minHeight: 550,
+    minWidth: 550,
+    flexDirection: "column"
   },
   content: {
     position: "relative",
-    marginBottom: 10
+    marginBottom: 25
   }
 });
 
@@ -32,11 +29,12 @@ class ErrorPage extends Component {
 
     return (
       <div className={classes.container}>
-        <Typography variant="h4" className={classes.content}>
+        <Typography variant="h3" className={classes.content}>
           404 Page not found
         </Typography>
         <Button
-          color="inherit"
+          variant="contained"
+          color="primary"
           className={classes.content}
           component={Link}
           to="/"

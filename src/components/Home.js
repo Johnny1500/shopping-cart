@@ -32,7 +32,7 @@ class Home extends Component {
 
     return (
       <Grid
-        style={{ marginTop: "5px" }}
+        style={{ marginTop: "20px" }}
         container
         spacing={2}
         direction="row"
