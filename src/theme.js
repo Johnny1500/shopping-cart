@@ -1,4 +1,4 @@
-import circuitImage from "./132.jpg";
+import backgroundImage from "./backgroundImage.jpg";
 
 export default {
   
@@ -21,7 +21,7 @@ export default {
       "@global": {
         body: {
           backgroundImage:
-            "url("+ circuitImage +")"
+            "url("+ backgroundImage +")"
         }
       }
     }
