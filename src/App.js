@@ -4,9 +4,9 @@ import themeObject from "./theme";
 
 // Pages
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Cart from "./components/Cart";
-import ErrorPage from "./components/ErrorPage";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import ErrorPage from "./pages/ErrorPage";
 
 // MUI Stuff
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";

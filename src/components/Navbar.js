@@ -1,19 +1,20 @@
-import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
 import Pineapple from "../Pineapple.png";
+import GroupOfButtons from "./GroupOfButtons";
 
 // MUI stuff
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/styles";
-import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import MenuIcon from "@material-ui/icons/Menu";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const styles = theme => ({
   ...theme.spreadThis,
-  cartPic: {
+  picture: {
     margin: "0 5px 0 5px"
   },
 
@@ -25,13 +26,13 @@ const styles = theme => ({
     flexGrow: 1
   },
 
-  "@media screen and (max-width: 768px)": {
+  "@media screen and (max-width: 768px), handheld": {
     largeScreenSize: {
       display: "none"
     }
   },
 
-  "@media screen and (min-width: 768px)": {
+  "@media screen and (min-width: 768px), handheld": {
     smallScreenSize: {
       display: "none"
     }
@@ -39,6 +40,19 @@ const styles = theme => ({
 });
 
 class Navbar extends Component {
+  state = {
+    anchorEl: null
+  };
+
+  handleClickMenu = event => {
+    let el = event.currentTarget;
+    this.setState({ anchorEl: el });
+  };
+
+  handleCloseMenu = () => {
+    this.setState({ anchorEl: null });
+  };
+
   render() {
     const { classes } = this.props;
 
@@ -54,7 +68,7 @@ class Navbar extends Component {
               alt="logo"
               width="24px"
               height="24px"
-              className={classes.cartPic}
+              className={classes.picture}
             />
             Pineapple Pi single-board computers
           </Typography>
@@ -67,30 +81,36 @@ class Navbar extends Component {
               alt="logo"
               width="24px"
               height="24px"
-              className={classes.cartPic}
+              className={classes.picture}
             />
             Pineapple Pi
           </Typography>
-          <Fragment>
-            <Button
-              color="inherit"
-              className={classes.largeScreenSize}
-              component={Link}
-              to="/"
-            >
-              Shop
-            </Button>
-            <Button
-              color="inherit"
-              className={classes.largeScreenSize}
-              component={Link}
-              to="/cart"
-            >
-              Cart
-              <ShoppingCart className={classes.cartPic} />
-            </Button>
-          </Fragment>
-          <MenuIcon className={classes.smallScreenSize} />
+          <GroupOfButtons
+            sizeClassName={classes.largeScreenSize}
+            pictureClassName={classes.picture}
+          />
+          <Button
+            aria-controls="customized-menu"
+            aria-haspopup="true"
+            variant="contained"
+            color="primary"
+            onClick={this.handleClickMenu}
+            className={classes.smallScreenSize}
+          >
+            <MenuIcon />
+          </Button>
+          <Menu
+            anchorEl={this.state.anchorEl}
+            open={Boolean(this.state.anchorEl)}
+            onClose={this.handleCloseMenu}
+          >
+            
+              <GroupOfButtons
+                sizeClassName={classes.smallScreenSize}
+                pictureClassName={classes.picture}
+              />
+            
+          </Menu>
         </Toolbar>
       </AppBar>
     );

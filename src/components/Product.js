@@ -50,13 +50,8 @@ class Product extends Component {
     return (
       <Card className={classes.card}>
         <CardHeader title={name} titleTypographyProps={{ variant: "h6" }} />
-        <CardMedia
-          image={imageUrl}
-          title="Product image"
-          className={classes.image}
-        />
+        <CardMedia image={imageUrl} className={classes.image} />
         <CardContent className={classes.content}>
-          {/* <Typography variant="h5">{name}</Typography> */}
           <Typography variant="body1">{description}</Typography>
           <Typography variant="h5" className={classes.price}>
             {price}
