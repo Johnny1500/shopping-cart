@@ -1,3 +1,4 @@
+// React stuff
 import React, { Component } from "react";
 import Pineapple from "../Pineapple.png";
 import GroupOfButtons from "./GroupOfButtons";
@@ -8,9 +9,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/styles";
 import MenuIcon from "@material-ui/icons/Menu";
-import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
+import IconButton from "@material-ui/core/IconButton";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
 
 const styles = theme => ({
   ...theme.spreadThis,
@@ -26,13 +27,23 @@ const styles = theme => ({
     flexGrow: 1
   },
 
-  "@media screen and (max-width: 768px), handheld": {
+  menu: {
+    display: "flex",
+    flexDirection: "column"
+  },
+
+  paper: {
+    backgroundColor: "#827717",
+    color: "#fff"
+  },
+
+  "@media screen and (max-width: 700px), handheld": {
     largeScreenSize: {
       display: "none"
     }
   },
 
-  "@media screen and (min-width: 768px), handheld": {
+  "@media screen and (min-width: 700px), handheld": {
     smallScreenSize: {
       display: "none"
     }
@@ -46,11 +57,9 @@ class Navbar extends Component {
 
   handleClickMenu = event => {
     let el = event.currentTarget;
-    this.setState({ anchorEl: el });
-  };
-
-  handleCloseMenu = () => {
-    this.setState({ anchorEl: null });
+    this.state.anchorEl
+      ? this.setState({ anchorEl: null })
+      : this.setState({ anchorEl: el });
   };
 
   render() {
@@ -89,28 +98,33 @@ class Navbar extends Component {
             sizeClassName={classes.largeScreenSize}
             pictureClassName={classes.picture}
           />
-          <Button
-            aria-controls="customized-menu"
+
+          <IconButton
+            aria-label="more"
+            aria-controls="long-menu"
             aria-haspopup="true"
-            variant="contained"
-            color="primary"
             onClick={this.handleClickMenu}
+            color="inherit"
             className={classes.smallScreenSize}
           >
             <MenuIcon />
-          </Button>
-          <Menu
+          </IconButton>
+
+          <Popper
             anchorEl={this.state.anchorEl}
             open={Boolean(this.state.anchorEl)}
-            onClose={this.handleCloseMenu}
+            placement="left"
+            transition
+            disablePortal
           >
-            
+            <Paper className={classes.paper}>
               <GroupOfButtons
                 sizeClassName={classes.smallScreenSize}
                 pictureClassName={classes.picture}
+                menu={classes.menu}
               />
-            
-          </Menu>
+            </Paper>
+          </Popper>
         </Toolbar>
       </AppBar>
     );
