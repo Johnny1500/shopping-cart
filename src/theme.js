@@ -1,5 +1,6 @@
-import backgroundImage from "./backgroundImage.jpg";
+import backgroundImage from "./images/BackgroundImage.jpg";
 
+// Main theme
 export default {
   
   palette: {
@@ -29,6 +30,32 @@ export default {
   spreadThis: {
     typography: {
       useNextVariants: true
+    },
+    
+    card: {
+      position: "relative",
+      display: "flex",
+      marginBottom: 20,
+      maxWidth: 500,
+      minWidth: 150,
+      minHeight: 550,
+      flexDirection: "column"
+    },
+
+    cardContent: {
+      padding: 25,
+      objectFit: "cover",
+      maxWidth: 700,
+      flexGrow: 1
+    },
+
+    cardImage: {
+      minWidth: 200,
+      minHeight: 200
+    },
+    
+    fab: {
+      margin: 10
     },
     
   }

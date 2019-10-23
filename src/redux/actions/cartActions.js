@@ -25,7 +25,7 @@ export const getProducts = () => async dispatch => {
       "http://us-central1-shopping-cart-aa4b0.cloudfunctions.net/api/products/"
     );
 
-    dispatch({ type: SET_PRODUCTS, payload: res.data });
+    await dispatch({ type: SET_PRODUCTS, payload: res.data });
   } catch (err) {
     dispatch({ type: SET_PRODUCTS, payload: [] });
     console.error(err);

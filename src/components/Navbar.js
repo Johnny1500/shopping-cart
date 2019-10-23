@@ -1,6 +1,6 @@
 // React stuff
 import React, { Component } from "react";
-import Pineapple from "../Pineapple.png";
+import Pineapple from "../images/Pineapple.png";
 import GroupOfButtons from "./GroupOfButtons";
 
 // MUI stuff

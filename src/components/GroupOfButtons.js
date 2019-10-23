@@ -1,3 +1,4 @@
+// React stuff
 import  React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
@@ -6,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import HomeIcon from "@material-ui/icons/Home";
 
+// A group of buttons for the navbar
 const GroupOfButtons = ({ sizeClassName, pictureClassName, menu }) => {
   return (
     <Fragment>

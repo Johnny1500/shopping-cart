@@ -13,30 +13,9 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const styles = theme => ({
   ...theme.spreadThis,
-  card: {
-    position: "relative",
-    display: "flex",
-    marginBottom: 20,
-    maxWidth: 500,
-    minWidth: 150,
-    minHeight: 550,
-    flexDirection: "column"
-  },
-  image: {
-    minWidth: 200,
-    minHeight: 200
-  },
-  content: {
-    padding: 25,
-    objectFit: "cover",
-    maxWidth: 700,
-    flexGrow: 1
-  },
-  fab: {
-    margin: theme.spacing(1)
-  },
+ 
   price: {
-    margin: "15 10 0 10"
+    marginRight: "10px"
   }
 });
 
@@ -50,8 +29,8 @@ class Product extends Component {
     return (
       <Card className={classes.card}>
         <CardHeader title={name} titleTypographyProps={{ variant: "h6" }} />
-        <CardMedia image={imageUrl} className={classes.image} />
-        <CardContent className={classes.content}>
+        <CardMedia image={imageUrl} className={classes.cardImage} />
+        <CardContent className={classes.cardContent}>
           <Typography variant="body1">{description}</Typography>
           <Typography variant="h5" className={classes.price}>
             {price}

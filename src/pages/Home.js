@@ -1,14 +1,17 @@
-import React, { Component, Fragment } from "react";
+// React stuff
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Product from "../components/Product";
+import ProductSkeleton from "../components/ProductSkeleton";
 
 // Redux stuff
 import { connect } from "react-redux";
 import { getProducts } from "../redux/actions/cartActions";
 
-// MUI Stuff
+// MUI stuff
 import Grid from "@material-ui/core/Grid";
 
+// Home (Shop) page
 class Home extends Component {
   componentDidMount() {
     this.props.getProducts();
@@ -25,9 +28,7 @@ class Home extends Component {
         </Grid>
       ))
     ) : (
-      <div>
-        <p>Loading...</p>
-      </div>
+      <ProductSkeleton />
     );
 
     return (
