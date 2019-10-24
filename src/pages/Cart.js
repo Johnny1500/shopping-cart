@@ -20,7 +20,7 @@ const styles = theme => ({
 // Cart page
 const Cart = props => {
     
-    const { classes } = props;
+    const { classes, items } = props;
 
     return (
         <div>
@@ -30,7 +30,7 @@ const Cart = props => {
 }
 
 const mapStateToProps = state => ({
-    
+    items: state.cartItems
   });
 
 Cart.propTypes = {

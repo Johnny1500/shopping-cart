@@ -50,7 +50,7 @@ class Product extends Component {
           color="secondary"
           aria-label="add"
           className={classes.fab}
-          onClick={this.handleClick(id)}
+          onClick={()=>{this.handleClick(id)}}
         >
           <AddShoppingCartIcon />
         </Fab>
