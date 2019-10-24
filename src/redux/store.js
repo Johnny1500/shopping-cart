@@ -5,6 +5,8 @@ import cartReducer from "./reducers/cartReducer";
 
 const initialState = {
   products: [],
+  cartItems: [],
+  total: 0,
   loading: false
 };
 

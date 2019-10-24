@@ -36,7 +36,7 @@ const styles = theme => ({
   },
 
   price: {
-    width: "20%",
+    width: "40%",
     height: 28,
     backgroundColor: "rgba(0,0,0, 0.5)",
     marginRight: "10px"

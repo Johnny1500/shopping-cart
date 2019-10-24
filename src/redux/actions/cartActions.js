@@ -1,4 +1,11 @@
-import { LOADING_DATA, SET_PRODUCTS } from "../types";
+import {
+  LOADING_DATA,
+  SET_PRODUCTS,
+  SET_CART_ITEM,
+  INCREASE_QUANTITY,
+  DECREASE_QUANTITY,
+  REMOVE_ITEM_FROM_CART
+} from "../types";
 
 import axios from "axios";
 
@@ -17,6 +24,7 @@ import axios from "axios";
 //     });
 // };
 
+// Get all products from Cloud Firestore
 export const getProducts = () => async dispatch => {
   try {
     dispatch({ type: LOADING_DATA });
@@ -31,3 +39,31 @@ export const getProducts = () => async dispatch => {
     console.error(err);
   }
 };
+
+// Set cart item action
+export const setCartItem = id => dispatch =>
+  dispatch({
+    type: SET_CART_ITEM,
+    id
+  });
+
+// Set cart item action
+export const removeProduct = id => dispatch =>
+  dispatch({
+    type: REMOVE_ITEM_FROM_CART,
+    id
+  });
+
+// Set cart item action
+export const increaseQuantity = id => dispatch =>
+  dispatch({
+    type: INCREASE_QUANTITY,
+    id
+  });
+
+// Set cart item action
+export const decreaseQuantity = id => dispatch =>
+  dispatch({
+    type: DECREASE_QUANTITY,
+    id
+  });

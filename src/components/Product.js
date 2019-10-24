@@ -1,8 +1,12 @@
+// React stuff
 import React, { Component } from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 
-// MUI Stuff
+// Redux stuff
+import { connect } from "react-redux";
+import { setCartItem } from "../redux/actions/cartActions";
+
+// MUI stuff
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -10,20 +14,25 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
 import Fab from "@material-ui/core/Fab";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = theme => ({
   ...theme.spreadThis,
- 
+
   price: {
     marginRight: "10px"
   }
 });
 
 class Product extends Component {
+  handleClick = id => {
+    this.props.setCartItem(id);
+  };
+
   render() {
     const {
       classes,
-      product: { name, description, imageUrl, price }
+      product: { id, name, description, imageUrl, price }
     } = this.props;
 
     return (
@@ -33,7 +42,7 @@ class Product extends Component {
         <CardContent className={classes.cardContent}>
           <Typography variant="body1">{description}</Typography>
           <Typography variant="h5" className={classes.price}>
-            {price}
+            Price: {price}$
           </Typography>
         </CardContent>
         <Fab
@@ -41,6 +50,7 @@ class Product extends Component {
           color="secondary"
           aria-label="add"
           className={classes.fab}
+          onClick={this.handleClick(id)}
         >
           <AddShoppingCartIcon />
         </Fab>
@@ -49,9 +59,17 @@ class Product extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  loading: state.loading,
+  products: state.products
+});
+
 Product.propTypes = {
   product: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Product);
+export default connect(
+  mapStateToProps,
+  { setCartItem }
+)(withStyles(styles)(Product));

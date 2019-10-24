@@ -1,13 +1,40 @@
-import React, { Component } from 'react'
+// React stuff
+import React from 'react'
+import PropTypes from 'prop-types'
 
-class Cart extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+// Redux stuff
+import { connect } from "react-redux";
+
+// MUI stuff
+import { withStyles } from "@material-ui/styles";
+
+const styles = theme => ({
+    ...theme.spreadThis,
+    
+    picture: {
+      margin: "0 5px 0 5px"
+    },
+      
+  });
+
+// Cart page
+const Cart = props => {
+    
+    const { classes } = props;
+
+    return (
+        <div>
+            
+        </div>
+    )
 }
 
-export default Cart
+const mapStateToProps = state => ({
+    
+  });
+
+Cart.propTypes = {
+    classes: PropTypes.object.isRequired
+}
+
+export default connect(mapStateToProps)(withStyles(styles)(Cart));

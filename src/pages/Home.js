@@ -19,7 +19,6 @@ class Home extends Component {
 
   render() {
     const { loading, products } = this.props;
-    console.log(loading, products);
 
     let productsMarkup = !loading ? (
       products.map(product => (
